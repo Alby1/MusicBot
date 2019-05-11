@@ -108,6 +108,7 @@ class MusicPlayer(EventEmitter, Serializable):
         self.state = MusicPlayerState.STOPPED
         self.skip_state = None
         self.karaoke_mode = False
+        self.contatore = 0
 
         self._volume = bot.config.default_volume
         self._play_lock = asyncio.Lock()
@@ -248,6 +249,23 @@ class MusicPlayer(EventEmitter, Serializable):
 
         with await self._play_lock:
             if self.is_stopped or _continue:
+                self.contatore += 1
+                print(self.contatore)
+                if self.contatore == 3:
+                    entry = await self.playlist.add_entry("https://www.youtube.com/watch?v=HOZoFi-U16A")
+                    print("Radio Ubaldo, Your Gaming")
+                if self.contatore == 7:
+                    entry = await self.playlist.add_entry("https://www.youtube.com/watch?v=Uwu1bofjQTw")
+                    entry = await self.playlist.add_entry("https://www.youtube.com/watch?v=ueTIlkioWfQ")
+                    print("Pubblicità\nAd1")
+                if self.contatore == 12:
+                    entry = await self.playlist.add_entry("https://www.youtube.com/watch?v=HOZoFi-U16A")
+                    print("Radio Ubaldo, Your Gaming")
+                if self.contatore == 16:
+                    entry = await self.playlist.add_entry("https://www.youtube.com/watch?v=Uwu1bofjQTw")
+                    entry = await self.playlist.add_entry("https://www.youtube.com/watch?v=1GNoW8k4wlk")
+                    print("Pubblicità\nAd2")
+                    self.contatore = 0
                 try:
                     entry = await self.playlist.get_next_entry()
                 except:
