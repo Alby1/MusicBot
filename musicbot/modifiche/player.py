@@ -264,16 +264,16 @@ class MusicPlayer(EventEmitter, Serializable):
             if self.is_stopped or _continue:
                 self.contatore += 1
                 print(self.contatore)
-                if self.contatore == 3:
+                if self.contatore == 4:
                     entry = await self.playlist.add_entry(self.canzoni_radio["Your Gaming"])
                     print("Radio Ubaldo, Your Gaming")
-                if self.contatore == 7 :
+                if self.contatore == 8 :
                     entry = await self.playlist.add_entry(self.canzoni_radio["Your Gaming"])
                     print("Radio Ubaldo, Your Gaming")
-                if self.contatore == 11 :
+                if self.contatore == 12 :
                     entry = await self.playlist.add_entry(self.canzoni_radio["Your Gaming"])
                     print("Radio Ubaldo, Your Gaming")
-                if self.contatore == 15 :
+                if self.contatore == 16 :
                     entry = await self.playlist.add_entry(self.canzoni_radio["Pubblicità"])
                     entry = await self.playlist.add_entry(self.canzoni_radio["Ad1"])
                     print("Pubblicità\nAd1")
